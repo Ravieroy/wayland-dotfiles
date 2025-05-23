@@ -1,0 +1,46 @@
+#!/bin/bash
+
+# List of file managers (priority order)
+FILE_MANAGERS=("dolphin" "nautilus" "thunar" "nemo" "pcmanfm" "krusader" "xdg-open")
+
+# Function to display usage instructions
+usage() {
+    echo "Usage: $0 pathName"
+    echo "Example: $0 /home/user/Documents"
+    exit 1
+}
+
+# Check if at least one file manager is available
+get_file_manager() {
+    for manager in "${FILE_MANAGERS[@]}"; do
+        if command -v "$manager" &>/dev/null; then
+            echo "$manager"
+            return
+        fi
+    done
+    echo ""
+}
+
+# If no arguments are passed, show usage instructions
+if [ $# -eq 0 ]; then
+    echo "Error: No path provided."
+    usage
+fi
+
+# Check if the argument is a valid path
+if [[ ! -e "$1" ]]; then
+    echo "Error: Path '$1' not found."
+    exit 1
+fi
+
+# Detect the available file manager
+DEFAULT_MANAGER=$(get_file_manager)
+
+if [[ -z "$DEFAULT_MANAGER" ]]; then
+    echo "Error: No supported file manager found. Please install one of the following: ${FILE_MANAGERS[*]}"
+    exit 1
+fi
+
+# Open the path using the detected file manager
+echo "Opening path '$1' with $DEFAULT_MANAGER..."
+"$DEFAULT_MANAGER" "$1" &

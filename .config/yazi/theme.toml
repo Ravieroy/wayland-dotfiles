@@ -1,0 +1,5 @@
+[flavor]
+# use = "nightfly"
+use = "catppuccin-mocha"
+# For upcoming Yazi 0.4 (nightly version):
+dark = "catppuccin-mocha"

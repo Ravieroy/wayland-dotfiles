@@ -1,0 +1,98 @@
+@import "mocha.css";
+
+/* Global Defaults */
+* {
+    border: none;
+    font-family: "JetBrainsMono Nerd Font", monospace;
+    font-weight: bold;
+    font-size: 15px;
+    min-height: 0;
+    padding: 0;
+    margin: 0;
+}
+
+/* Waybar Window Styling */
+window#waybar {
+    background: @base;
+    color: @text;
+    opacity: 0.95;
+    border-radius: 10px;
+    margin: 1px;
+}
+
+/* Workspaces Styling */
+#workspaces {
+    background: @base;
+    padding: 0 5px;
+    margin: 0;
+}
+
+#workspaces button {
+    padding: 2px 6px;
+    margin: 0 2px;
+    background: transparent;
+    color: @overlay1;
+    transition: background 0.2s ease;
+}
+
+#workspaces button.active,
+#workspaces button.focused,
+#workspaces button.urgent {
+    border-radius: 3px;
+}
+
+#workspaces button.active {
+    background: @mauve;
+    color: @base;
+}
+
+#workspaces button.focused {
+    background: @blue;
+    color: @base;
+}
+
+#workspaces button.urgent {
+    background: @red;
+    color: @base;
+}
+
+#workspaces button:hover {
+    background: @surface0;
+    color: @text;
+}
+
+/* General Module Styling */
+#window,
+#clock,
+#battery,
+#pulseaudio,
+#network,
+#cpu,
+#memory,
+#custom-spotify,
+#custom-logout,
+#custom-exit,
+#workspaces,
+#tray,
+#backlight {
+    background: @base;
+    padding: 6px 8px;
+    margin: 0 2px;
+    border-radius: 6px;
+}
+
+/* Individual Module Colors */
+#custom-uptime  {color: @lavender;}
+#cpu            { color: @sapphire; }
+#memory         { color: @blue; }
+#custom-updates {color: @teal;}
+#disk         { color: @sky; }
+#network      { color: @peach; }
+#backlight    { color: @green; }
+#pulseaudio   { color: @teal; }
+#pulseaudio.microphone { color: @sky; }
+#temperature   { color: @text}
+#clock        { color: @blue; }
+#battery      { color: @yellow; }
+#custom-exit  {color: @red;}
+#window       { color: @yellow; }

@@ -1,0 +1,84 @@
+#!/bin/bash
+
+# Usage message
+usage() {
+    echo "Usage:"
+    echo "  $0 --add <prefix> [--pattern <glob>] [--dry-run]"
+    echo "  $0 --remove <prefix> [--pattern <glob>] [--dry-run]"
+    exit 1
+}
+
+# Parse arguments
+PREFIX=""
+ACTION=""
+PATTERN="*"
+DRY_RUN=0
+
+while [[ "$#" -gt 0 ]]; do
+    case $1 in
+        --add)
+            ACTION="add"
+            PREFIX="$2"
+            shift 2
+            ;;
+        --remove)
+            ACTION="remove"
+            PREFIX="$2"
+            shift 2
+            ;;
+        --pattern)
+            PATTERN="$2"
+            shift 2
+            ;;
+        --dry-run)
+            DRY_RUN=1
+            shift
+            ;;
+        *)
+            echo "Unknown option: $1"
+            usage
+            ;;
+    esac
+done
+
+# Validate
+if [[ -z "$ACTION" || -z "$PREFIX" ]]; then
+    usage
+fi
+
+# Action: Add prefix
+if [[ "$ACTION" == "add" ]]; then
+    echo "Adding prefix '$PREFIX.' to items matching '$PATTERN'"
+    for f in $PATTERN; do
+        [[ -e "$f" ]] || continue
+        new="${PREFIX}.$f"
+        if [[ "$DRY_RUN" -eq 1 ]]; then
+            echo "[DRY-RUN] mv \"$f\" \"$new\""
+        elif [[ -e "$new" ]]; then
+            echo "Skipping: Target '$new' already exists."
+        else
+            mv "$f" "$new"
+            echo "Renamed: $f → $new"
+        fi
+    done
+fi
+
+# Action: Remove prefix
+if [[ "$ACTION" == "remove" ]]; then
+    echo "Removing prefix '$PREFIX.' from items matching '$PATTERN'"
+    for f in $PATTERN; do
+        [[ -e "$f" ]] || continue
+        if [[ "$f" == "$PREFIX."* ]]; then
+            new="${f#${PREFIX}.}"
+            if [[ "$DRY_RUN" -eq 1 ]]; then
+                echo "[DRY-RUN] mv \"$f\" \"$new\""
+            elif [[ -e "$new" ]]; then
+                echo "Skipping: Target '$new' already exists."
+            else
+                mv "$f" "$new"
+                echo "Renamed: $f → $new"
+            fi
+        fi
+    done
+fi
+

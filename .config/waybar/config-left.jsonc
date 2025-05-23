@@ -1,0 +1,20 @@
+{
+  "layer": "top",
+  "position": "left",
+  "mode": "dock",
+  "exclusive": true,
+  "passthrough": false,
+  "gtk-layer-shell": true,
+  "height": 0,
+
+  "modules-center": ["hyprland/window"],
+  "modules-right": [],
+  "modules-left": [],
+
+  "hyprland/window": {
+    "format": "{}",
+    "max-length": 50,
+    "rotate": 270
+  }
+}
+

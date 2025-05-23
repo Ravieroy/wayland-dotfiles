@@ -1,0 +1,164 @@
+{
+  "layer": "top",
+  "position": "top",
+
+  "modules-center": [
+    "hyprland/workspaces",
+  ],
+
+  "modules-left": [
+    "custom/uptime",
+    "cpu",
+    "memory",
+    "custom/updates",
+  ],
+
+  "modules-right": [
+    "disk",
+    "network",
+    "backlight",
+    "pulseaudio",
+    "temperature",
+    "clock",
+    "battery",
+    "custom/exit",
+    "tray"
+  ],
+
+  // Power Menu
+  "custom/exit": {
+    "format": "",
+    "on-click": "bash -c wlogout",
+    "on-click-right": "hyprlock",
+    "tooltip-format": "Left: Power menu\nRight: Lock screen"
+  },
+
+  "custom/updates": {
+    "interval": 1800,
+    "exec": "bash -c 'dnf check-update 2>/dev/null | grep -v ^$ | wc -l'",
+    "return-type": "int",
+    "format": " {} updates",
+    "tooltip": "Fedora updates available",
+    },
+
+  "custom/uptime": {
+  "interval": 60,
+  "exec":"/home/raviroy/.scripts/uptime.sh", 
+  "format": " {}",
+  "tooltip": "System uptime",
+  "return-type": "string"
+    },
+
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "format-icons": {
+      "1": "",
+      "2": "",
+      "3": "",
+      "4": "🅩",
+      "5": "",
+      "6": "",
+      "7": "",
+      "8": "",
+      "9": "9: ",
+      "default": "10: "
+        }
+    },
+
+ "clock": {
+    "interval": 1,
+    "format": " {:%I:%M %p}", // AM PM format
+    //"format": " {:%H:%M:%S}",
+    "format-alt": " {:%H:%M   %Y, %d %B, %A}",
+    "tooltip-format": "<tt><small>{calendar}</small></tt>",
+    "calendar": {
+      "mode"          : "month",
+      "mode-mon-col"  : 3,
+      "weeks-pos"     : "right",
+      "on-scroll"     : 1,
+      "format": {
+      "months":     "<span color='#ffead3'><b>{}</b></span>",
+      "days":       "<span color='#ecc6d9'><b>{}</b></span>",
+      "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
+      "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
+      "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
+                }
+                }
+    },
+    "actions":  {
+      "on-click-right": "mode",
+      "on-click-forward": "tz_up",
+      "on-click-backward": "tz_down",
+      "on-scroll-up": "shift_up",
+      "on-scroll-down": "shift_down"
+    },
+
+  "battery": {
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{icon} {capacity}%",
+    "format-charging": " {capacity}%",
+    "format-icons": ["", "", "", "", ""],
+    "interval": 30
+  },
+
+  "cpu": {
+    "format": " {usage}%",
+    "tooltip": false
+    },
+
+  "memory": {
+    "interval": 10,
+    "format": "󰾆 {used:0.1f}G ",
+    "format-alt": "{percentage}% 󰾆",
+    "format-alt-click": "click",
+    "tooltip": true,
+    "tooltip-format": "{used:0.1f}GB/{total:0.1f}G",
+    },
+
+  "disk": {
+    "interval": 30,
+    //"format": "",
+    "path": "/",
+    //"format-alt-click": "click",
+    "format": "󰋜 {percentage_used}%",
+    //"tooltip": true,
+    "tooltip-format": "{used} used out of {total} on {path} ({percentage_used}%)",
+    },
+
+  "network": {
+    "format-wifi": "  {essid} ({signalStrength}%)",
+    "format-ethernet": "  {ipaddr}",
+    "format-disconnected": " Disconnected",
+    "tooltip": false
+  },
+
+  "pulseaudio": {
+    "format": " {volume}%",
+    "format-muted": " Muted",
+    "tooltip": false
+  },
+
+  "backlight": {
+    "format": "☀ {percent}%",
+    "tooltip": false
+  },
+
+  "temperature": {
+    "interval": 10,
+    "tooltip": true,
+    "hwmon-path": ["/sys/class/hwmon/hwmon1/temp1_input", "/sys/class/thermal/thermal_zone0/temp"],
+    //"thermal-zone": 0,
+    "critical-threshold": 80,
+    "format-critical": "{icon} {temperatureC}°C",
+    "format": "{icon} {temperatureC}°C",
+    "format-icons": ["󰈸"],
+    },
+
+  "tray": {
+    "spacing": 6
+  }
+}
+

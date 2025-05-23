@@ -1,0 +1,27 @@
+#!/bin/sh
+
+
+#----For color-----
+
+txtred=$(tput setaf 1)
+txtgrn=$(tput setaf 2)
+txtylw=$(tput setaf 3)
+txtblu=$(tput setaf 4)
+txtpur=$(tput setaf 5)
+txtcyn=$(tput setaf 6)
+txtrst=$(tput sgr0)
+
+
+FAN_SPEED=$(sensors |grep -i fan | awk '{ gsub(/[ ]+/," "); print $2 }' )
+FULL_FAN_SPEED=$(sensors |grep -i fan | awk '{ gsub(/[ ]+/," "); print $2 " " $3 }' )
+ 
+
+if [ $FAN_SPEED -eq 0 ]; then
+    echo "${txtgrn} $FULL_FAN_SPEED ${txtrst} "
+elif [ "$FAN_SPEED" -gt 0 ] && [ "$FAN_SPEED" -lt 3000 ]; then
+    echo "${txtylw}   $FULL_FAN_SPEED ${txtrst} "
+else
+    echo "${txtred}   $FULL_FAN_SPEED ${txtrst} "
+
+fi
+

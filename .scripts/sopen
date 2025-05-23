@@ -1,0 +1,49 @@
+#! /bin/bash
+
+print_usage() {
+  echo "Usage: $0 -e extension -o viewer"
+  exit 1
+}
+
+main(){
+	case "$fname" in
+		*.pdf) $VIEWER $fname || $DEFAULT_PDF_VIEWER $fname &;;
+		*.txt) $VIEWER $fname || $DEFAULT_TXT_VIEWER $fname &;;
+		*) $VIEWER $fname  || $DEFAULT_TXT_VIEWER $fname &;;
+	esac
+}
+DEFAULT_PDF_VIEWER="okular"
+DEFAULT_TXT_VIEWER="kate"
+DEFAULT_EXT="pdf"
+
+ext=$DEFAULT_EXT
+
+while getopts 'e:o:' flag
+do
+        case "${flag}" in
+				e) ext=${OPTARG}
+					;;
+
+                o) VIEWER=${OPTARG}
+				    ;;
+
+                *) print_usage
+        esac
+done
+
+fname=$(find . -not -path '*/.*' -type f -name "*.$ext" | fzf --header="Enter filename >" --info=inline)
+echo -e "Do you want to open the file? (Y/n) \c"
+read input
+    if [ -z "$input" ]
+    then
+        input=Y
+    fi
+case $input in
+    "Y" | "y" )
+		main;;
+    "n" )
+		echo $fname ;;
+esac
+
+# TODOS
+# Make a separate function to handle the different formats. 
