@@ -1,0 +1,15 @@
+# Hyprlock custom PAM config
+
+# Try password first
+auth        sufficient    pam_unix.so try_first_pass nullok
+
+# Then try fingerprint
+auth        sufficient    pam_fprintd.so
+
+# Deny if none work
+auth        required      pam_deny.so
+
+account     include       system-auth
+password    include       system-auth
+session     include       system-auth
+
