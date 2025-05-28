@@ -15,6 +15,7 @@
 
   "modules-right": [
     "disk",
+    "disk#external",
     "network",
     "backlight",
     "pulseaudio",
@@ -31,6 +32,14 @@
     "on-click": "bash -c wlogout",
     "on-click-right": "hyprlock",
     "tooltip-format": "Left: Power menu\nRight: Lock screen"
+  },
+
+  "disk#external": {
+  "format": " {percentage_used}%",
+  "path": "/run/media/raviroy/T7",
+  "interval": 30,
+  "tooltip": true,
+  "tooltip-format": "T7 SSD\nUsed: {used}\nFree: {free}\nTotal: {total}\nUsage: {percentage_used}%",
   },
 
   "custom/updates": {
@@ -129,8 +138,8 @@
     },
 
   "network": {
-    "format-wifi": "  {essid} ({signalStrength}%)",
-    "format-ethernet": "  {ipaddr}",
+    "format-wifi": " {essid} ({signalStrength}%)",
+    "format-ethernet": " {ipaddr}",
     "format-disconnected": " Disconnected",
     "tooltip": false
   },

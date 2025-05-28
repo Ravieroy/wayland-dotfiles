@@ -62,6 +62,11 @@ window#waybar {
 }
 
 /* General Module Styling */
+#disk.external {
+  color: @blue;
+  padding-left: 8px;
+  padding-right: 4px;
+}
 #window,
 #clock,
 #battery,
@@ -76,8 +81,8 @@ window#waybar {
 #tray,
 #backlight {
     background: @base;
-    padding: 6px 8px;
-    margin: 0 2px;
+    padding: 4px 5px;
+    margin: 0 5px;
     border-radius: 6px;
 }
 
