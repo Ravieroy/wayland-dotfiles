@@ -86,50 +86,31 @@ window#waybar {
     border-radius: 6px;
 }
 
-/* Grouped Catppuccin-style color scheme */
-#cpu,
-#memory,
-#temperature,
-#custom-uptime {
+/* Fix special disk spacing */
+#disk.external {
     color: @blue;
+    padding-left: 0;
 }
 
-#network,
-#pulseaudio,
-#pulseaudio.microphone {
-    color: @teal;
-}
-
-#battery,
-#backlight {
-    color: @teal;
-}
-
-#clock,
-#tray {
-    color: @sapphire;
-}
-
-#custom-logout,
-#window {
-    color: @mauve;
-}
-
-#disk,
-#custom-updates {
-    color: @sky;
-}
-
-#temperature {
-    color: @rosewater;
-}
-
+/* Special Styling */
 #temperature.critical {
     color: @red;
     font-weight: bold;
 }
 
-#custom-exit {
-    color: @red;
-}
+/* Individual Module Colors */
+#custom-uptime      { color: @lavender; }
+#cpu                { color: @sapphire; }
+#memory             { color: @blue; }
+#custom-updates     { color: @teal; }
+#disk               { color: @sky; }
+#network            { color: @peach; }
+#backlight          { color: @green; }
+#pulseaudio         { color: @teal; }
+#pulseaudio.microphone { color: @sky; }
+#temperature        { color: @text; }
+#clock              { color: @blue; }
+#battery            { color: @yellow; }
+#custom-exit        { color: @red; }
+#window             { color: @yellow; }
 

@@ -86,49 +86,36 @@ window#waybar {
     border-radius: 6px;
 }
 
-/* Grouped Catppuccin-style color scheme */
+/* Fix special disk spacing */
+#disk.external {
+    color: @lavender;
+    padding-left: 0;
+}
+
+/* Unified color scheme: Catppuccin style */
+#custom-uptime,
 #cpu,
 #memory,
-#temperature,
-#custom-uptime {
-    color: @blue;
-}
-
+#custom-updates,
+#disk,
 #network,
+#backlight,
 #pulseaudio,
-#pulseaudio.microphone {
-    color: @teal;
-}
-
-#battery,
-#backlight {
-    color: @teal;
-}
-
+#pulseaudio.microphone,
+#temperature,
 #clock,
-#tray {
-    color: @sapphire;
-}
-
-#custom-logout,
-#window {
+#battery,
+#window,
+#custom-spotify,
+#custom-logout {
     color: @mauve;
 }
 
-#disk,
-#custom-updates {
-    color: @sky;
-}
-
-#temperature {
-    color: @rosewater;
-}
-
+/* Critical or alert styling */
 #temperature.critical {
     color: @red;
     font-weight: bold;
 }
-
 #custom-exit {
     color: @red;
 }
