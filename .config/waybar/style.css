@@ -85,6 +85,17 @@ window#waybar {
     margin: 0 5px;
     border-radius: 6px;
 }
+#temperature {
+    color: @text;
+    padding: 4px 5px;
+    margin: 0 5px;
+    border-radius: 6px;
+}
+#temperature.critical {
+    color: @red;
+    font-weight: bold;
+}
+
 
 /* Individual Module Colors */
 #custom-uptime  {color: @lavender;}

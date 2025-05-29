@@ -64,7 +64,7 @@
       "1": "",
       "2": "",
       "3": "",
-      "4": "🅩",
+      "4": "Z",
       "5": "",
       "6": "",
       "7": "",
@@ -156,15 +156,12 @@
   },
 
   "temperature": {
-    "interval": 10,
-    "tooltip": true,
-    "hwmon-path": ["/sys/class/hwmon/hwmon1/temp1_input", "/sys/class/thermal/thermal_zone0/temp"],
-    //"thermal-zone": 0,
-    "critical-threshold": 80,
-    "format-critical": "{icon} {temperatureC}°C",
+    "hwmon-path": "/sys/class/thermal/thermal_zone0/temp",
+    "critical-threshold": 75,
     "format": "{icon} {temperatureC}°C",
-    "format-icons": ["󰈸"],
-    },
+    "format-icons": ["", "", ""],
+    "tooltip": true
+  },
 
   "tray": {
     "spacing": 6
