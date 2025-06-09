@@ -1,0 +1,135 @@
+@import "mocha.css";
+
+/* Global Defaults */
+* {
+    border: none;
+    font-family: "JetBrainsMono Nerd Font", monospace;
+    font-weight: bold;
+    font-size: 15px;
+    min-height: 0;
+    padding: 0;
+    margin: 0;
+}
+
+/* Waybar Window Styling */
+window#waybar {
+    background: @base;
+    color: @text;
+    opacity: 0.95;
+    border-radius: 10px;
+    margin: 1px;
+}
+
+/* Workspaces Styling */
+#workspaces {
+    background: @base;
+    padding: 0 6px;
+    margin: 0;
+}
+
+#workspaces button {
+    padding: 2px 8px;
+    margin: 0 3px;
+    background: transparent;
+    color: @overlay1;
+    transition: background 0.2s ease;
+}
+
+#workspaces button.active,
+#workspaces button.focused,
+#workspaces button.urgent {
+    border-radius: 3px;
+}
+
+#workspaces button.active {
+    background: @mauve;
+    color: @base;
+}
+
+#workspaces button.focused {
+    background: @blue;
+    color: @base;
+}
+
+#workspaces button.urgent {
+    background: @red;
+    color: @base;
+}
+
+#workspaces button:hover {
+    background: @surface0;
+    color: @text;
+}
+
+/* Apply consistent styling to all modules */
+#window,
+#clock,
+#battery,
+#pulseaudio,
+#network,
+#cpu,
+#memory,
+#custom-spotify,
+#custom-logout,
+#custom-exit,
+#workspaces,
+#tray,
+#backlight,
+#custom-updates,
+#custom-uptime,
+#temperature,
+#disk,
+#disk.external {
+    background: @base;
+    padding: 4px 8px;
+    margin: 0 5px;
+    border-radius: 6px;
+}
+
+/* Grouped Catppuccin-style color scheme */
+#cpu,
+#memory,
+#temperature,
+#custom-uptime {
+    color: @blue;
+}
+
+#network,
+#pulseaudio,
+#pulseaudio.microphone {
+    color: @teal;
+}
+
+#battery,
+#backlight {
+    color: @teal;
+}
+
+#clock,
+#tray {
+    color: @sapphire;
+}
+
+#custom-logout,
+#window {
+    color: @mauve;
+}
+
+#disk,
+#custom-updates {
+    color: @sky;
+}
+
+#temperature {
+    color: @rosewater;
+}
+
+#temperature.critical {
+    color: @red;
+    font-weight: bold;
+}
+
+#custom-exit {
+    color: @red;
+}
+
