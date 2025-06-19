@@ -153,6 +153,10 @@ window#waybar.empty #window {
     color: @blue;
 }
 
+#custom-hidden_windows {
+    color: @blue;
+}
+
 #disk {
     color: @sapphire;
 }

@@ -11,6 +11,7 @@
     "cpu",
     "memory",
     "custom/updates",
+    "custom/hidden_windows",
   ],
 
   "modules-right": [
@@ -34,6 +35,15 @@
     "tooltip-format": "Left: Power menu\nRight: Lock screen"
   },
 
+  "custom/hidden_windows": {
+  "format": "{}",
+  "exec": "~/.config/hypr/scripts/hidden_windows.sh",
+  "interval": 2,
+  "on-click": "~/.config/hypr/scripts/hidden_windows.sh --click",
+  "tooltip": true,
+  "tooltip-format": "Hidden windows count"
+  },
+
   "disk#external": {
   "format": " {percentage_used}%",
   "path": "/run/media/raviroy/T7",
@@ -51,12 +61,12 @@
     },
 
   "custom/uptime": {
-  "interval": 60,
-  "exec":"/home/raviroy/.scripts/uptime.sh", 
-  "format": " {}",
-  "tooltip": "System uptime",
-  "return-type": "string"
-    },
+    "interval": 60,
+    "exec":"/home/raviroy/.scripts/uptime.sh",
+    "format": " {}",
+    "tooltip": "System uptime",
+    "return-type": "string"
+  },
 
   "hyprland/workspaces": {
     "format": "{icon}",
@@ -74,7 +84,7 @@
         }
     },
 
- "clock": {
+  "clock": {
     "interval": 1,
     "format": " {:%I:%M %p}", // AM PM format
     //"format": " {:%H:%M:%S}",
@@ -168,6 +178,7 @@
   }
 },
 
+// Separate bar for external monitor
 {
   "layer": "top",
   "position": "top",
@@ -179,6 +190,7 @@
   "modules-left": [
     "cpu",
     "memory",
+    "custom/hidden_windows",
     "hyprland/window",
   ],
 
@@ -195,6 +207,15 @@
     "on-click": "bash -c wlogout",
     "on-click-right": "hyprlock",
     "tooltip-format": "Left: Power menu\nRight: Lock screen"
+  },
+
+  "custom/hidden_windows": {
+  "format": "{}",
+  "exec": "~/.config/hypr/scripts/hidden_windows.sh",
+  "interval": 2,
+  "on-click": "~/.config/hypr/scripts/hidden_windows.sh --click",
+  "tooltip": true,
+  "tooltip-format": "Hidden windows count"
   },
 
   "hyprland/workspaces": {
