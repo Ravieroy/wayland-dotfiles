@@ -50,3 +50,4 @@ alias coding="/run/media/raviroy/T7/HomeBase/10-Academics/12-ComputationalCodes/
 alias atag="filetags --tags"
 alias vtag="filetags --tag-gardening"
 alias rtag="filetags --remove --tags"
+alias txc="/home/raviroy/02-Applications/TeXicode/txc"
