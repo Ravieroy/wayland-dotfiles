@@ -17,6 +17,7 @@
   "modules-right": [
     "disk",
     "disk#external",
+    "custom/bt_keyboard",
     "network",
     "backlight",
     "pulseaudio",
@@ -26,6 +27,13 @@
     "custom/exit",
     "tray"
   ],
+
+  "custom/bt_keyboard": {
+    "format": "{}",
+    "exec": "/home/raviroy/.scripts/bt_keyboard_battery.sh",
+    "interval": 60,
+    "signal": 10
+  },
 
   // Power Menu
   "custom/exit": {
