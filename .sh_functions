@@ -114,3 +114,19 @@ function y() {
 	fi
 	rm -f -- "$tmp"
 }
+
+# --- Flatpak wrapper function ---
+fp() {
+    case "$1" in
+        s|search)      shift; flatpak search "$@" ;;      # Search
+        i|install)     shift; flatpak install "$@" ;;     # Install
+        r|run)         shift; flatpak run "$@" ;;         # Run
+        u|update)      shift; flatpak update "$@" ;;      # Update
+        l|list)        shift; flatpak list "$@" ;;        # List
+        rm|remove|uninstall) shift; flatpak uninstall "$@" ;;  # Remove
+        info)          shift; flatpak info "$@" ;;        # Info
+        c|config)      shift; flatpak config "$@" ;;      # Config
+        *)             flatpak "$@" ;;                   # Fallback to full flatpak
+    esac
+}
+
