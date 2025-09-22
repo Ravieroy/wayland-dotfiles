@@ -142,3 +142,5 @@ path=('/home/raviroy/.juliaup/bin' $path)
 export PATH
 
 # <<< juliaup initialize <<<
+
+alias nv="/home/raviroy/02-Applications/nvim-linux-x86_64/bin/nvim"
