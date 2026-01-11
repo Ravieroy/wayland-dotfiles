@@ -17,7 +17,7 @@
   "modules-right": [
     "disk",
     "disk#external",
-    "custom/bt_keyboard",
+    // "custom/bt_keyboard",
     "network",
     "backlight",
     "pulseaudio",
