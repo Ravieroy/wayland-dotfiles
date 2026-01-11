@@ -24,3 +24,6 @@ require("lazy").setup("plugins")
 -- Bufferline
 vim.opt.termguicolors = true
 --require("bufferline").setup({})
+
+require("oil").setup()
+
