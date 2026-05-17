@@ -12,6 +12,7 @@
     "memory",
     "custom/updates",
     "custom/hidden_windows",
+    "custom/thesis",
   ],
 
   "modules-right": [
@@ -27,6 +28,14 @@
     "custom/exit",
     "tray"
   ],
+
+  "custom/thesis": {
+    "format": "{}",
+    "return-type": "json",
+    "exec": "~/.config/waybar/thesis-progress.py",
+    "interval": 1800,
+    "tooltip": true
+  },
 
   "custom/bt_keyboard": {
     "format": "{}",
@@ -78,6 +87,9 @@
 
   "hyprland/workspaces": {
     "format": "{icon}",
+    "sort-by": "number",
+    "on-scroll-up": "hyprctl dispatch 'hl.dsp.focus({ workspace = \"e+1\" })'",
+    "on-scroll-down": "hyprctl dispatch 'hl.dsp.focus({ workspace = \"e-1\" })'",
     "format-icons": {
       "1": "",
       "2": "",
@@ -169,7 +181,7 @@
   "network": {
     "format-wifi": " {essid} ({signalStrength}%)",
     "format-ethernet": " {ipaddr}",
-    "format-disconnected": " Disconnected",
+    "format-disconnected": "󰌙 ",
     "tooltip": false
   },
 
@@ -239,6 +251,9 @@
 
  "hyprland/workspaces": {
     "format": "{icon}",
+    "sort-by": "number",
+    "on-scroll-up": "hyprctl dispatch 'hl.dsp.focus({ workspace = \"e+1\" })'",
+    "on-scroll-down": "hyprctl dispatch 'hl.dsp.focus({ workspace = \"e-1\" })'",
     "format-icons": {
       "1": "",
       "2": "",

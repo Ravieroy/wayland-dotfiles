@@ -1,0 +1,211 @@
+@import "mocha.css";
+
+* {
+    font-family: "JetBrainsMono Nerd Font";
+    font-weight: 800;
+    min-height: 0;
+    font-size: 14px;
+}
+
+window#waybar {
+    background: transparent;
+    border-radius: 12px;
+    opacity: 0.96;
+    margin: 4px 0 4px 4px;
+    transition-property: background-color, opacity;
+    transition-duration: 0.35s;
+}
+
+window#waybar.hidden {
+    opacity: 0.25;
+}
+
+window#waybar.empty,
+window#waybar.empty #window {
+    background: transparent;
+    padding: 0;
+    border: 0;
+}
+
+.modules-left,
+.modules-center,
+.modules-right {
+    background: alpha(@theme_base_color, 0.92);
+    border: 1px solid @overlay0;
+    border-radius: 12px;
+    padding: 3px 2px;
+    margin: 3px 1px;
+}
+
+.modules-center {
+    border-color: @lavender;
+}
+
+.modules-left,
+.modules-right {
+    border-color: @blue;
+}
+
+#workspaces {
+    padding: 2px 0;
+}
+
+#workspaces button {
+    color: @overlay1;
+    background: transparent;
+    box-shadow: none;
+    text-shadow: none;
+    border-radius: 8px;
+    padding: 3px 1px;
+    margin: 2px 0;
+    min-width: 0;
+    min-height: 0;
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+
+#workspaces button:hover {
+    color: @peach;
+    background-color: @surface0;
+}
+
+#workspaces button.persistent {
+    color: @surface1;
+}
+
+#workspaces button.active {
+    color: @mauve;
+    background-color: alpha(@mauve, 0.15);
+}
+
+#workspaces button.urgent {
+    color: @red;
+    background-color: alpha(@red, 0.16);
+}
+
+#clock,
+#battery,
+#network,
+#custom-exit,
+#tray,
+#cpu,
+#memory,
+#temperature,
+#backlight,
+#pulseaudio,
+#custom-updates,
+#custom-hidden_windows {
+    padding: 4px 2px;
+    margin: 2px 0;
+    border-radius: 8px;
+    min-width: 0;
+}
+
+#cpu,
+#memory,
+#temperature,
+#backlight,
+#pulseaudio,
+#custom-updates,
+#custom-hidden_windows {
+    font-size: 14px;
+}
+
+#clock {
+    color: @yellow;
+    font-size: 14px;
+    font-weight: 900;
+    padding: 8px 0;
+}
+
+#battery {
+    color: @green;
+    font-size: 14px;
+    padding: 3px 0;
+}
+
+#battery.critical:not(.charging) {
+    background-color: @red;
+    color: @base;
+    animation-name: blink;
+    animation-duration: 1s;
+    animation-timing-function: steps(12);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#network {
+    color: @teal;
+    font-size: 14px;
+    font-weight: 800;
+    padding: 4px 1px;
+}
+
+#network.disconnected,
+#network.disabled {
+    color: @red;
+}
+
+#cpu {
+    color: @green;
+}
+
+#memory {
+    color: @sky;
+}
+
+#temperature {
+    color: @peach;
+}
+
+#temperature.critical {
+    color: @red;
+}
+
+#backlight {
+    color: @blue;
+}
+
+#pulseaudio {
+    color: @sapphire;
+}
+
+#custom-updates,
+#custom-hidden_windows {
+    color: @lavender;
+}
+
+#custom-exit {
+    color: @red;
+    font-size: 14px;
+    padding: 5px 0;
+}
+
+#tray {
+    padding: 3px 0;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+}
+
+tooltip {
+    background: @base;
+    color: @text;
+    border: 1px solid @overlay0;
+    border-radius: 10px;
+}
+
+tooltip label {
+    color: @text;
+}
+
+@keyframes blink {
+    to {
+        color: @surface0;
+    }
+}

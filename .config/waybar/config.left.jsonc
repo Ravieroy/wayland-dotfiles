@@ -1,0 +1,188 @@
+[
+  {
+    "layer": "top",
+    "position": "left",
+    "width": 60,
+    "spacing": 2,
+    "output": "eDP-1",
+
+    "modules-left": [
+      "cpu",
+      "memory",
+      "temperature",
+      "backlight",
+      "pulseaudio",
+      "custom/updates",
+      "custom/hidden_windows",
+      "custom/thesis",
+    ],
+
+    "modules-center": [
+      "hyprland/workspaces"
+    ],
+
+    "modules-right": [
+      "clock",
+      "battery",
+      "network",
+      "custom/exit",
+      "tray"
+    ],
+
+    "custom/thesis": {
+      "format": "{}",
+      "return-type": "json",
+      "exec": "~/.config/waybar/thesis-progress.py",
+      "interval": 1800,
+      "tooltip": true
+    },
+
+    "custom/exit": {
+      "format": "󰐥",
+      "on-click": "wlogout",
+      "on-click-right": "hyprlock",
+      "tooltip-format": "Left: Power menu\nRight: Lock screen"
+    },
+
+    "custom/hidden_windows": {
+      "format": "{}",
+      "exec": "~/.config/hypr/scripts/hidden_windows.sh",
+      "interval": 2,
+      "on-click": "~/.config/hypr/scripts/hidden_windows.sh --click",
+      "tooltip": true,
+      "tooltip-format": "Hidden windows"
+    },
+
+    "custom/updates": {
+      "interval": 1800,
+      "exec": "bash -c 'dnf check-update 2>/dev/null | grep -v ^$ | wc -l'",
+      "return-type": "int",
+      "format": "󰚰 {}",
+      "tooltip": true,
+      "tooltip-format": "Available updates"
+    },
+
+    "hyprland/workspaces": {
+      "format": "{icon}",
+      "format-icons": {
+        "1": "",
+        "2": "",
+        "3": "",
+        "4": "Z",
+        "5": "5",
+        "6": "6",
+        "7": "7",
+        "8": "8",
+        "9": "9",
+        "10": "10",
+        "11": "",
+        "12": "",
+        "13": "",
+        "14": "",
+        "15": "15",
+        "16": "16",
+        "17": "17",
+        "18": "18",
+        "19": "19",
+        "20": "20",
+        "default": ""
+      }
+    },
+
+    "clock": {
+      "interval": 1,
+      "rotate": 90,
+      "format": "{:%I:%M %p}",
+      "format-alt": "{:%a %d %b}",
+      "tooltip-format": "<tt><small>{calendar}</small></tt>",
+      "calendar": {
+        "mode": "month",
+        "mode-mon-col": 3,
+        "weeks-pos": "right",
+        "on-scroll": 1,
+        "format": {
+          "months": "<span color='#ffead3'><b>{}</b></span>",
+          "days": "<span color='#ecc6d9'><b>{}</b></span>",
+          "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
+          "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+          "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
+        }
+      },
+      "actions": {
+        "on-click-right": "mode",
+        "on-click-forward": "tz_up",
+        "on-click-backward": "tz_down",
+        "on-scroll-up": "shift_up",
+        "on-scroll-down": "shift_down"
+      }
+    },
+
+    "battery": {
+      "states": {
+        "warning": 30,
+        "critical": 15
+      },
+      "format": "{icon}",
+      "format-charging": "󰂄",
+      "format-full": "󰁹",
+      "format-icons": [
+        "󰂎",
+        "󰁺",
+        "󰁻",
+        "󰁼",
+        "󰁽",
+        "󰁾",
+        "󰁿",
+        "󰂀",
+        "󰂁",
+        "󰂂",
+        "󰁹"
+      ],
+      "tooltip": true,
+      "tooltip-format": "{capacity}%",
+      "interval": 30
+    },
+
+    "network": {
+      "format-wifi": "󰖩",
+      "format-ethernet": "󰈀",
+      "format-disconnected": "󰖪",
+      "tooltip": true,
+      "tooltip-format": "{ifname}\n{ipaddr}"
+    },
+
+    "cpu": {
+      "format": "󰘚 {usage}%",
+      "tooltip": true,
+    },
+
+    "memory": {
+      "interval": 10,
+      "format": "󰍛 {percentage}%",
+      "tooltip": true,
+      "tooltip-format": "{used:0.1f}G / {total:0.1f}G"
+    },
+
+    "pulseaudio": {
+      "format": "󰕾 {volume}%",
+      "format-muted": "󰝟",
+      "tooltip": true
+    },
+
+    "backlight": {
+      "format": "󰃟 {percent}%",
+      "tooltip": false
+    },
+
+    "temperature": {
+      "hwmon-path": "/sys/class/thermal/thermal_zone0/temp",
+      "critical-threshold": 75,
+      "format": "󰔏 {temperatureC}°",
+      "tooltip": true
+    },
+
+    "tray": {
+      "spacing": 2
+    }
+  },
+  ]
