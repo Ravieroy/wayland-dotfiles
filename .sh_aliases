@@ -1,8 +1,4 @@
-alias lt='ls --human-readable --size -1 -S --classify'
-alias ls="lsd"
-alias l="lsd -ltr"
-#alias cp="cpg -g"
-#alias mv="mvg -g"
+alias ls="lsd --group-directories-first"
 alias clean="sudo dnf autoremove"
 alias install="sudo dnf install"
 alias update="sudo dnf update"
@@ -16,7 +12,6 @@ alias calc='bc -l'
 alias n="nnn -e"
 alias cat="bat"
 alias ppt="pdfpc.sh"
-# alias gh='history|grep'
 alias count='find . -type f | wc -l'
 alias tm='trash'
 alias tmls='trash-list'
@@ -44,7 +39,6 @@ alias hf='history -100 |fzf'
 #alias yta-wav="youtube-dl --extract-audio --audio-format wav "
 #alias ytv-best="youtube-dl -f bestvideo+bestaudio "
 alias rd='ripdrag -x'
-
 alias home="/run/media/raviroy/T7"
 alias coding="/run/media/raviroy/T7/HomeBase/10-Academics/12-ComputationalCodes/"
 alias atag="filetags --tags"
