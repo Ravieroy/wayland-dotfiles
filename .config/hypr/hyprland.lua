@@ -374,7 +374,7 @@ hl.window_rule({
 
 hl.window_rule({
   name = "windowrule-3",
-  match = { class = [[^(eog)$]] },
+  match = { class = [[^(org\.gnome\.eog)$]] },
   float = true,
 })
 
