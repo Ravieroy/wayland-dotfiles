@@ -1,14 +1,17 @@
-# A TOML linter such as https://taplo.tamasfe.dev/ can use this schema to validate your config.
-# If you encounter any issues, please make an issue at https://github.com/yazi-rs/schemas.
-"$schema" = "https://yazi-rs.github.io/schemas/yazi.json"
-
-[manager]
-ratio          = [ 1, 2, 4 ]
+[mgr]
+ratio = [1, 2, 4]
 
 [plugin]
 prepend_previewers = [
-  { name = "*.md", run = "glow" },
+  { url = "*.md", run = 'piper -- CLICOLOR_FORCE=1 glow -w=$w -s=dark "$1"' },
+]
+
+prepend_fetchers = [
+  { url = "*",  run = "git", group = "git" },
+  { url = "*/", run = "git", group = "git" },
 ]
 
 [opener]
-edit = [{ run = 'nvim "$@"', block = true }]
+edit = [
+  { run = 'nvim %s', block = true, for = "unix" },
+]
