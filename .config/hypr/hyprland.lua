@@ -213,10 +213,14 @@ hl.bind(superShift .. " + X", hl.dsp.exit())
 hl.bind(mainMod .. " + Space", hl.dsp.window.float())
 hl.bind(mainMod .. " + D", hl.dsp.exec_cmd(menu))
 hl.bind(altMod .. " + P", hl.dsp.window.pseudo())
--- hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))
+hl.bind(mainMod .. " + O", hl.dsp.exec_cmd(scripts .. "/obsidian-vault-picker"))
 
-hl.bind("Print", hl.dsp.exec_cmd("hyprshot -m window"))
-hl.bind("SHIFT + Print", hl.dsp.exec_cmd("hyprshot -m region"))
+hl.bind("Print", hl.dsp.exec_cmd("hyprshot -m window --clipboard-only"))
+hl.bind("SHIFT + Print", hl.dsp.exec_cmd("hyprshot -m region --clipboard-only"))
+
+-- Save screenshot locally
+hl.bind("CTRL + Print", hl.dsp.exec_cmd("hyprshot -m window"))
+hl.bind("CTRL+ SHIFT + Print", hl.dsp.exec_cmd("hyprshot -m region"))
 
 hl.bind(superShift .. " + L", hl.dsp.exec_cmd("hyprlock"))
 hl.bind(mainMod .. " + P", hl.dsp.exec_cmd("killall wlogout || wlogout"))
