@@ -140,6 +140,8 @@ unset __conda_setup
 
 path=('/home/raviroy/.juliaup/bin' $path)
 export PATH
+# Tab completion for juliaup and julia channel selection
+[ -f "/home/raviroy/.julia/juliaup/completions/zsh.zsh" ] && source "/home/raviroy/.julia/juliaup/completions/zsh.zsh"
 
 # <<< juliaup initialize <<<
 
