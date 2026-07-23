@@ -1,4 +1,5 @@
 alias ls="lsd --group-directories-first"
+alias lt="ls -ltr"
 alias clean="sudo dnf autoremove"
 alias install="sudo dnf install"
 alias update="sudo dnf update"
